@@ -9,7 +9,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-//   // Link
 } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState('light');
@@ -43,27 +42,19 @@ function App() {
       document.body.style.backgroundColor = "white"
       showAlert("Light Mode Has Enabled", "success")
       document.title = "TextUtils - LightMode"
-
     }
   }
   return (
     <>
       <Router>
         <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
-        {/* <Navbar/> */}
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route path="/About" element={<About mode ={mode}/>}/>
-            {/* <Route exact path="/about" element={<About />}/> */}
-              
-             <Route path="/" element={<TextForm heading="Try TextUtils - Word Counter, Character Counter and Remove Extra Spaces" showAlert={showAlert} mode={mode} /> }/>
-            {/* <TextForm heading="Enter The Text To analyze Below" showAlert={showAlert} mode={mode} /> */}
-              
-            {/* </Route> */}
+            <Route path="/About" element={<About mode={mode} />} />
+            <Route exact path="/TextUtils-React" element={<TextForm heading="Try TextUtils - Word Counter, Character Counter and Remove Extra Spaces" showAlert={showAlert} mode={mode} />} />
           </Routes>
         </div>
-        {/* <About/> */}
       </Router>
     </>
   );
